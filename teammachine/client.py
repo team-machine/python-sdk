@@ -1,5 +1,8 @@
+import types
 from time import time
 from uuid import uuid4
+
+import networkx as nx
 
 import jwt
 import requests
@@ -68,6 +71,7 @@ class Client:
         self.auth = Auth(client_id, private_key, authorization_url)
 
         self.gql = GQL(query_url, self.auth)
+        self.networks = Networks(self.gql)
 
 
 class GQL:
@@ -78,5 +82,84 @@ class GQL:
     def request(self, query):
         response = requests.post(self.query_url, json={"query": query}, auth=self.auth)
 
-        response.raise_for_status()
+        try:
+            response.raise_for_status()
+        except requests.exceptions.HTTPError:
+            raise requests.exceptions.HTTPError(
+                response.status_code, response.text, query
+            )
+
         return response.json()
+
+
+class Networks:
+    NETWORKS = {
+        "backbone": "backbone",
+        "code": "codeNetwork",
+        "collaboration": "collaborationNetwork",
+        "contribution": "contributionNetwork",
+        "conversations": "conversationsNetwork",
+        "files": "fileHierarchy",
+        "edited_files": "editedFiles",
+    }
+
+    def __init__(self, gql):
+        self._gql = gql
+
+        for method_name, query_name in self.NETWORKS.items():
+            method = types.MethodType(self._wrap_query(method_name, query_name), self)
+            setattr(self, method_name, method)
+
+    def _wrap_query(self, method_name, query_name):
+        # TODO: get method signature from schema
+        def wrapper(self, start_date=None, end_date=None, **kwargs):
+            query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
+            query_filter = ", ".join(
+                f'{name}:"{value}"'
+                for name, value in query_params.items()
+                if value is not None
+            )
+            if query_filter:
+                query_filter = f"({query_filter})"
+
+            result = self._gql.request(
+                f"""
+                query {{
+                    {query_name}{query_filter} {{
+                        nodes {{
+                            tm_id
+                            tm_display_name
+                            node_type
+                            url
+                        }}
+                        links {{
+                            source
+                            target
+                            weight
+                            type
+                        }}
+                    }}
+                }}
+            """
+            )
+
+            data = result["data"][query_name]
+            return Network(data["nodes"], data["links"])
+
+        return wrapper
+
+
+class Network:
+    def __init__(self, nodes, edges):
+        self.nodes = nodes
+        self.edges = edges
+
+        self.graph = nx.DiGraph()
+
+        for node in self.nodes:
+            self.graph.add_node(node["tm_id"], **node)
+
+        for edge in self.edges:
+            self.graph.add_edge(
+                edge["source"], edge["target"], weight=edge["weight"], type=edge["type"]
+            )

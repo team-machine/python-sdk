@@ -15,7 +15,7 @@ with open("README.md", "r") as f:
     readme = f.read()
 
 
-requires = ["pyjwt>=1.7.0", "requests>=2.21.0", "cryptography>=1.3.4"]
+requires = ["pyjwt>=1.7.0", "requests>=2.21.0", "cryptography>=1.3.4", "networkx>=2.2"]
 tests_require = ["pytest>=3"]
 
 setup(
