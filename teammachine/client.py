@@ -86,17 +86,17 @@ class Query:
     def activity(self, start_date, end_date, **kwargs):
         query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
         query_filter = ", ".join(
-            f'{name}:"{value}"'
+            '{name}:"{value}"'.format(name=name, value=value)
             for name, value in query_params.items()
             if value is not None
         )
         if query_filter:
-            query_filter = f"({query_filter})"
+            query_filter = "(" + query_filter + ")"
 
         result = self._gql.request(
-            f"""
+            """
             query {{
-                {self.node_type} {{
+                {node_type} {{
                     tm_id
                     tm_display_name
                     node_type
@@ -119,7 +119,9 @@ class Query:
                     }}
                 }}
             }}
-        """
+        """.format(
+                node_type=self.node_type, query_filter=query_filter
+            )
         )
 
         return result["data"][self.node_type]
@@ -166,15 +168,15 @@ class Networks:
         def wrapper(self, start_date=None, end_date=None, **kwargs):
             query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
             query_filter = ", ".join(
-                f'{name}:"{value}"'
+                '{name}:"{value}"'.format(name=name, value=value)
                 for name, value in query_params.items()
                 if value is not None
             )
             if query_filter:
-                query_filter = f"({query_filter})"
+                query_filter = "(" + query_filter + ")"
 
             result = self._gql.request(
-                f"""
+                """
                 query {{
                     {query_name}{query_filter} {{
                         nodes {{
@@ -191,7 +193,9 @@ class Networks:
                         }}
                     }}
                 }}
-            """
+            """.format(
+                    query_name=query_name, query_filter=query_filter
+                )
             )
 
             data = result["data"][query_name]
