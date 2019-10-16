@@ -73,6 +73,57 @@ class Client:
         self.gql = GQL(query_url, self.auth)
         self.networks = Networks(self.gql)
 
+    @property
+    def slack_channel(self):
+        return Query("SlackChannel", self.gql)
+
+
+class Query:
+    def __init__(self, node_type, gql):
+        self.node_type = node_type
+        self._gql = gql
+
+    def activity(self, start_date, end_date, **kwargs):
+        query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
+        query_filter = ", ".join(
+            f'{name}:"{value}"'
+            for name, value in query_params.items()
+            if value is not None
+        )
+        if query_filter:
+            query_filter = f"({query_filter})"
+
+        result = self._gql.request(
+            f"""
+            query {{
+                {self.node_type} {{
+                    tm_id
+                    tm_display_name
+                    node_type
+                    activity{query_filter} {{
+                        tm_id
+                        tm_display_name
+                        node_type
+                        created_at
+                        url
+                        created_by {{
+                            tm_id
+                            tm_display_name
+                            is_human
+                        }}
+                        mentions {{
+                            tm_id
+                            tm_display_name
+                            is_human
+                        }}
+                    }}
+                }}
+            }}
+        """
+        )
+
+        return result["data"][self.node_type]
+
 
 class GQL:
     def __init__(self, query_url, auth):
