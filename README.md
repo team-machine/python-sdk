@@ -3,15 +3,21 @@ A Python SDK for interacting with the Team Machine API.
 
 ## Usage
 
+### Authentication
+
+In order to authenticate the Python SDK, first go to <https://app.teammachine.io/spaces/api-clients> to download a credentials JSON file
+containing a client ID and private key used for authenticating your API client.
+
 ### GraphQL queries
 
 ```
+import json
 import teammachine as tm
 
-client_id = "YOUR CLIENT ID"
-private_key = "YOUR PRIVATE KEY"
+with open("/path/to/credentials.json") as f:
+    credentials = json.load(f)
 
-client = tm.Client(client_id, private_key)
+client = tm.Client(**credentials)
 result = client.gql.request("""
 query {
     Identity {

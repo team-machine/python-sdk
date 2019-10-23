@@ -8,6 +8,8 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
+from .query import Query, SlackQuery
+
 QUERY_URL = "https://app-query.teammachine.io/graphql"
 AUTHORIZATION_URL = "https://app-svc.teammachine.io/svc/v1/tokens"
 
@@ -59,6 +61,21 @@ class Auth(AuthBase):
         }
 
 
+# TODO: generate from gql schema
+_entity_types = {
+    "slack_channel": ("SlackChannel", SlackQuery),
+    "identity": "Identity",
+    "code_repo": "CodeRepo",
+    "code_folder": "CodeFolder",
+    "code_file": "CodeFile",
+    "jira_project": "JiraProject",
+    "jira_issue": "JiraIssue",
+    "dropbox_folder": "DropboxFolder",
+    "dropbox_file": "DropboxFile",
+    "work_container": "WorkContainer",
+}
+
+
 class Client:
     def __init__(
         self,
@@ -73,58 +90,12 @@ class Client:
         self.gql = GQL(query_url, self.auth)
         self.networks = Networks(self.gql)
 
-    @property
-    def slack_channel(self):
-        return Query("SlackChannel", self.gql)
+        for k, v in _entity_types.items():
+            query_class = Query
+            if isinstance(v, tuple):
+                v, query_class = v
 
-
-class Query:
-    def __init__(self, node_type, gql):
-        self.node_type = node_type
-        self._gql = gql
-
-    def activity(self, start_date, end_date, **kwargs):
-        query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
-        query_filter = ", ".join(
-            '{name}:"{value}"'.format(name=name, value=value)
-            for name, value in query_params.items()
-            if value is not None
-        )
-        if query_filter:
-            query_filter = "(" + query_filter + ")"
-
-        result = self._gql.request(
-            """
-            query {{
-                {node_type} {{
-                    tm_id
-                    tm_display_name
-                    node_type
-                    activity{query_filter} {{
-                        tm_id
-                        tm_display_name
-                        node_type
-                        created_at
-                        url
-                        created_by {{
-                            tm_id
-                            tm_display_name
-                            is_human
-                        }}
-                        mentions {{
-                            tm_id
-                            tm_display_name
-                            is_human
-                        }}
-                    }}
-                }}
-            }}
-        """.format(
-                node_type=self.node_type, query_filter=query_filter
-            )
-        )
-
-        return result["data"][self.node_type]
+            setattr(self, k, query_class(v, self.gql))
 
 
 class GQL:
