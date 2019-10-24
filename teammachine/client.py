@@ -8,7 +8,7 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
-from .query import Query, SlackQuery
+from .fields import NodeField, Query
 
 QUERY_URL = "https://app-query.teammachine.io/graphql"
 AUTHORIZATION_URL = "https://app-svc.teammachine.io/svc/v1/tokens"
@@ -62,8 +62,8 @@ class Auth(AuthBase):
 
 
 # TODO: generate from gql schema
-_entity_types = {
-    "slack_channel": ("SlackChannel", SlackQuery),
+_node_types = {
+    "slack_channel": "SlackChannel",
     "identity": "Identity",
     "code_repo": "CodeRepo",
     "code_folder": "CodeFolder",
@@ -90,12 +90,27 @@ class Client:
         self.gql = GQL(query_url, self.auth)
         self.networks = Networks(self.gql)
 
-        for k, v in _entity_types.items():
-            query_class = Query
-            if isinstance(v, tuple):
-                v, query_class = v
+        for k, v in _node_types.items():
+            setattr(self, k, ClientQuery(v, self.gql))
 
-            setattr(self, k, query_class(v, self.gql))
+
+class ClientQuery(NodeField):
+    def __init__(self, name, gql, *fields):
+        self._gql = gql
+        super(ClientQuery, self).__init__(name, *fields)
+
+    def _clone(self):
+        instance = self.__class__(self.name, self._gql, *self._fields)
+        instance._args = self._args
+        return instance
+
+    def request(self, *fields):
+        if not fields:
+            fields = self._fields
+
+        query = Query(self._to_string(self.name, self._args, fields))
+        result = self._gql.request(str(query))
+        return result["data"][self.name]
 
 
 class GQL:
