@@ -40,5 +40,5 @@ setup(
     python_requires=">=3.5",
     install_requires=requires,
     tests_require=tests_require,
-    extras_require={},
+    extras_require={"pandas": ["pandas"]},
 )

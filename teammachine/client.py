@@ -1,4 +1,6 @@
+import re
 import types
+from collections import Mapping
 from time import time
 from uuid import uuid4
 
@@ -9,6 +11,14 @@ import requests
 from requests.auth import AuthBase
 
 from .fields import NodeField, Query
+
+try:
+    import pandas as pd
+
+    has_pandas = True
+except ModuleNotFoundError:
+    has_pandas = False
+
 
 QUERY_URL = "https://app-query.teammachine.io/graphql"
 AUTHORIZATION_URL = "https://app-svc.teammachine.io/svc/v1/tokens"
@@ -110,7 +120,7 @@ class ClientQuery(NodeField):
 
         query = Query(self._to_string(self.name, self._args, fields))
         result = self._gql.request(str(query))
-        return result["data"][self.name]
+        return QueryResult(result["data"], query)
 
 
 class GQL:
@@ -204,3 +214,89 @@ class Network:
             self.graph.add_edge(
                 edge["source"], edge["target"], weight=edge["weight"], type=edge["type"]
             )
+
+
+class QueryResult(Mapping):
+    def __init__(self, data, query):
+        self.query = query
+        self._data = data
+
+    def __getitem__(self, key):
+        return self._data[key]
+
+    def __iter__(self):
+        return iter(self._data)
+
+    def __len__(self):
+        return len(self._data)
+
+    def __repr__(self):
+        return self._data.__repr__()
+
+    def __str__(self):
+        return self._data.__str__()
+
+    @property
+    def dataframes(self):
+        if not has_pandas:
+            raise ModuleNotFoundError("Install 'pandas' to construct dataframes")
+
+        if not hasattr(self, "_dataframes"):
+            self._dataframes = DataFrames(self._data)
+
+        return self._dataframes
+
+
+class DataFrames:
+    def __init__(self, data):
+        self._frames = []
+        for k, v in create_dataframes(data).items():
+            setattr(self, k, v)
+            self._frames.append(k)
+
+    def __repr__(self):
+        return "<DataFrames: %s>" % ", ".join(self._frames)
+
+
+def snake_case(name):
+    s1 = re.sub("(.)([A-Z][a-z]+)", r"\1_\2", name)
+    return re.sub("([a-z0-9])([A-Z])", r"\1_\2", s1).lower()
+
+
+def create_dataframes(obj):
+    dataframes = {}
+
+    def flatten_obj(obj, parent_key=None):
+        def items():
+            for i, (key, value) in enumerate(obj.items()):
+                key = snake_case(key)
+
+                if isinstance(value, list):
+                    df = pd.DataFrame([flatten_obj(x, key) for x in value])
+
+                    if i > 0:
+                        columns = df.columns
+                        parent_id = obj.get("tm_id", obj.get("id", i))
+                        parent_id_key = (parent_key or key) + "_id"
+                        df[parent_id_key] = parent_id
+                        df = df[[parent_id_key] + list(columns)]
+
+                    df_key = parent_key + "_" + key if parent_key else key
+
+                    if df_key in dataframes:
+                        dataframes[df_key] = pd.concat(
+                            [dataframes[df_key], df], sort=False
+                        ).reindex()
+                    else:
+                        dataframes[df_key] = df
+
+                elif isinstance(value, dict):
+                    for (subkey, subvalue) in flatten_obj(value, key).items():
+                        yield (key + "_" + subkey, subvalue)
+                else:
+                    yield (key, value)
+
+        return dict(items())
+
+    flatten_obj(obj)
+    return dataframes
