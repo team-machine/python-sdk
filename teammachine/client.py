@@ -105,20 +105,20 @@ class Client:
 
 
 class ClientQuery(NodeField):
-    def __init__(self, name, gql, *fields):
+    def __init__(self, name, gql, *fields, **object_fields):
+        self._name = name
         self._gql = gql
-        super(ClientQuery, self).__init__(name, *fields)
+        super(ClientQuery, self).__init__(*fields, **object_fields)
 
-    def _clone(self):
-        instance = self.__class__(self.name, self._gql, *self._fields)
+    def _clone(self, *args, **kwargs):
+        instance = self.__class__(
+            self._name, self._gql, *args, **{**self._fields, **kwargs}
+        )
         instance._args = self._args
         return instance
 
-    def request(self, *fields):
-        if not fields:
-            fields = self._fields
-
-        query = Query(self._to_string(self.name, self._args, fields))
+    def request(self):
+        query = Query(**{self._name: self})
         result = self._gql.request(str(query))
         return QueryResult(result["data"], query)
 
