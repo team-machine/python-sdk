@@ -274,7 +274,7 @@ def create_dataframes(obj):
                 if isinstance(value, list):
                     df = pd.DataFrame([flatten_obj(x, key) for x in value])
 
-                    if i > 0:
+                    if parent_key is not None:
                         columns = df.columns
                         parent_id = obj.get("tm_id", obj.get("id", i))
                         parent_id_key = (parent_key or key) + "_id"
@@ -286,7 +286,7 @@ def create_dataframes(obj):
                     if df_key in dataframes:
                         dataframes[df_key] = pd.concat(
                             [dataframes[df_key], df], sort=False
-                        ).reindex()
+                        ).reset_index(drop=True)
                     else:
                         dataframes[df_key] = df
 
