@@ -281,6 +281,9 @@ def create_dataframes(obj):
                         df[parent_id_key] = parent_id
                         df = df[[parent_id_key] + list(columns)]
 
+                    if "created_at" in df.columns:
+                        df["created_at"] = pd.to_datetime(df.created_at)
+
                     df_key = parent_key + "_" + key if parent_key else key
 
                     if df_key in dataframes:
