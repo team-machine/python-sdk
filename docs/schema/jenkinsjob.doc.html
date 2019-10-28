@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
+    <title>JenkinsJob</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
+</head>
+<body class="slds-scrollable--y">
+    <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
+        <header class="slds-p-around--medium slds-col slds-shrik slds-grow-none">
+            <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
+                <i class="material-icons">close</i>
+            </button>
+                <h3 class="slds-text-heading--medium"><a href="./">GraphQL Schema</a></h3>
+            <div class="slds-p-top--small">
+                <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
+            </div>
+        </header>
+        <div id="navication-scroll" class="slds-scrollable--y slds-col slds-grow">
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Schema</h4>
+    <ul>
+        <li  title="Query">
+            <a href="query.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Query
+            </a>
+        </li>
+        <li  title="Mutation">
+            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Mutation
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Scalars</h4>
+    <ul>
+        <li  title="Boolean">
+            <a href="boolean.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Boolean
+            </a>
+        </li>
+        <li  title="Float">
+            <a href="float.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Float
+            </a>
+        </li>
+        <li  title="ID">
+            <a href="id.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ID
+            </a>
+        </li>
+        <li  title="Int">
+            <a href="int.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Int
+            </a>
+        </li>
+        <li  title="ISODateTime">
+            <a href="isodatetime.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ISODateTime
+            </a>
+        </li>
+        <li  title="String">
+            <a href="string.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                String
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Enums</h4>
+    <ul>
+        <li  title="DailyActivityType">
+            <a href="dailyactivitytype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DailyActivityType
+            </a>
+        </li>
+        <li  title="Frequency">
+            <a href="frequency.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Frequency
+            </a>
+        </li>
+        <li  title="PredicateOp">
+            <a href="predicateop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PredicateOp
+            </a>
+        </li>
+        <li  title="TimeSeriesAggregationOp">
+            <a href="timeseriesaggregationop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TimeSeriesAggregationOp
+            </a>
+        </li>
+        <li  title="TimeSeriesInterval">
+            <a href="timeseriesinterval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TimeSeriesInterval
+            </a>
+        </li>
+        <li  title="TimeSeriesName">
+            <a href="timeseriesname.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TimeSeriesName
+            </a>
+        </li>
+        <li  title="__DirectiveLocation">
+            <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __DirectiveLocation
+            </a>
+        </li>
+        <li  title="__TypeKind">
+            <a href="typekind.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __TypeKind
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
+    <ul>
+        <li  title="CalendarEvent">
+            <a href="calendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CalendarEvent
+            </a>
+        </li>
+        <li  title="Document">
+            <a href="document.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Document
+            </a>
+        </li>
+        <li  title="Event">
+            <a href="event.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Event
+            </a>
+        </li>
+        <li  title="File">
+            <a href="file.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                File
+            </a>
+        </li>
+        <li  title="Folder">
+            <a href="folder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Folder
+            </a>
+        </li>
+        <li  title="Impermanent">
+            <a href="impermanent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Impermanent
+            </a>
+        </li>
+        <li  title="Node">
+            <a href="node.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Node
+            </a>
+        </li>
+        <li  title="Scoreable">
+            <a href="scoreable.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Scoreable
+            </a>
+        </li>
+        <li  title="TrackedProject">
+            <a href="trackedproject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TrackedProject
+            </a>
+        </li>
+        <li  title="WorkArtefact">
+            <a href="workartefact.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkArtefact
+            </a>
+        </li>
+        <li  title="WorkContainer">
+            <a href="workcontainer.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkContainer
+            </a>
+        </li>
+        <li  title="WorkItem">
+            <a href="workitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkItem
+            </a>
+        </li>
+        <li  title="WorkItemUpdate">
+            <a href="workitemupdate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkItemUpdate
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Unions</h4>
+    <ul>
+        <li  title="Textual">
+            <a href="textual.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Textual
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
+    <ul>
+        <li  title="ActivityCount">
+            <a href="activitycount.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ActivityCount
+            </a>
+        </li>
+        <li  title="BackboneGraph">
+            <a href="backbonegraph.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BackboneGraph
+            </a>
+        </li>
+        <li  title="BackboneLink">
+            <a href="backbonelink.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BackboneLink
+            </a>
+        </li>
+        <li  title="CodeCommit">
+            <a href="codecommit.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CodeCommit
+            </a>
+        </li>
+        <li  title="CodeFile">
+            <a href="codefile.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CodeFile
+            </a>
+        </li>
+        <li  title="CodeFolder">
+            <a href="codefolder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CodeFolder
+            </a>
+        </li>
+        <li  title="CodeRepo">
+            <a href="coderepo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CodeRepo
+            </a>
+        </li>
+        <li  title="DropboxFile">
+            <a href="dropboxfile.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DropboxFile
+            </a>
+        </li>
+        <li  title="DropboxFolder">
+            <a href="dropboxfolder.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DropboxFolder
+            </a>
+        </li>
+        <li  title="DropboxRev">
+            <a href="dropboxrev.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                DropboxRev
+            </a>
+        </li>
+        <li  title="Graph">
+            <a href="graph.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Graph
+            </a>
+        </li>
+        <li  title="GSuiteCalendarEvent">
+            <a href="gsuitecalendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GSuiteCalendarEvent
+            </a>
+        </li>
+        <li  title="Identity">
+            <a href="identity.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Identity
+            </a>
+        </li>
+        <li  title="JenkinsBuild">
+            <a href="jenkinsbuild.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                JenkinsBuild
+            </a>
+        </li>
+        <li class="slds-is-active" title="JenkinsJob">
+            <a href="jenkinsjob.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                JenkinsJob
+            </a>
+        </li>
+        <li  title="JiraChangelogItem">
+            <a href="jirachangelogitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                JiraChangelogItem
+            </a>
+        </li>
+        <li  title="JiraIssue">
+            <a href="jiraissue.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                JiraIssue
+            </a>
+        </li>
+        <li  title="JiraProject">
+            <a href="jiraproject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                JiraProject
+            </a>
+        </li>
+        <li  title="Link">
+            <a href="link.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Link
+            </a>
+        </li>
+        <li  title="NodeWithScore">
+            <a href="nodewithscore.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                NodeWithScore
+            </a>
+        </li>
+        <li  title="Sensor">
+            <a href="sensor.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Sensor
+            </a>
+        </li>
+        <li  title="SharedLink">
+            <a href="sharedlink.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SharedLink
+            </a>
+        </li>
+        <li  title="SharedMediaObject">
+            <a href="sharedmediaobject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SharedMediaObject
+            </a>
+        </li>
+        <li  title="SlackChannel">
+            <a href="slackchannel.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SlackChannel
+            </a>
+        </li>
+        <li  title="SlackMessage">
+            <a href="slackmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SlackMessage
+            </a>
+        </li>
+        <li  title="SlackMessageReaction">
+            <a href="slackmessagereaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                SlackMessageReaction
+            </a>
+        </li>
+        <li  title="Tag">
+            <a href="tag.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Tag
+            </a>
+        </li>
+        <li  title="Team">
+            <a href="team.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Team
+            </a>
+        </li>
+        <li  title="Territory">
+            <a href="territory.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Territory
+            </a>
+        </li>
+        <li  title="TimeSeriesSample">
+            <a href="timeseriessample.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TimeSeriesSample
+            </a>
+        </li>
+        <li  title="WorkArtefactContentType">
+            <a href="workartefactcontenttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkArtefactContentType
+            </a>
+        </li>
+        <li  title="WorkArtefactType">
+            <a href="workartefacttype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                WorkArtefactType
+            </a>
+        </li>
+        <li  title="__Directive">
+            <a href="directive.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Directive
+            </a>
+        </li>
+        <li  title="__EnumValue">
+            <a href="enumvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __EnumValue
+            </a>
+        </li>
+        <li  title="__Field">
+            <a href="field.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Field
+            </a>
+        </li>
+        <li  title="__InputValue">
+            <a href="inputvalue.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __InputValue
+            </a>
+        </li>
+        <li  title="__Schema">
+            <a href="schema.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Schema
+            </a>
+        </li>
+        <li  title="__Type">
+            <a href="type.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                __Type
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Input Objects</h4>
+    <ul>
+        <li  title="Interval">
+            <a href="interval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Interval
+            </a>
+        </li>
+        <li  title="Predicate">
+            <a href="predicate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Predicate
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Directives</h4>
+    <ul>
+        <li  title="deprecated">
+            <a href="deprecated.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                deprecated
+            </a>
+        </li>
+        <li  title="include">
+            <a href="include.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                include
+            </a>
+        </li>
+        <li  title="skip">
+            <a href="skip.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                skip
+            </a>
+        </li>
+    </ul>
+</div>
+        </div>
+    </nav>
+    <main><section class="title slds-theme--inverse">
+    <div class="container slds-grid">
+        <div>
+        <button class="slds-button js-toggle-navigation less-than-medium">
+            <i class="material-icons slds-button__icon slds-button__icon--left">menu</i>
+            <span class="slds-text-title--caps">Types<span>
+        </button>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">JenkinsJob</h1>
+        <div class="slds-text-body--regular"></div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="graphql-schema-definition" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#graphql-schema-definition">
+                <i class="material-icons">link</i>
+            </a>
+            GraphQL Schema definition
+        </h2>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">JenkinsJob</span> <span class="keyword operator ts">implements</span> <a class="support type" href="workcontainer.doc.html">WorkContainer</a>, <a class="support type" href="node.doc.html">Node</a> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">tm_id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">node_type</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="meta">tm_display_name</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="meta">is_context</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"><span class="tab"><span class="meta">first_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"><span class="tab"><span class="meta">last_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"><span class="tab"><span class="meta">activity</span>(<span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>, <span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>, <span class="meta">created_by</span>: <a class="support type" href="string.doc.html">String</a>): [<a class="support type" href="jenkinsbuild.doc.html">JenkinsBuild</a>] </span></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"><span class="tab"><span class="meta">activity_count</span>(</span></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"><span class="tab"><span class="tab"><span class="meta">interval</span>: <a class="support type" href="interval.doc.html">Interval</a>,</span></span></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"><span class="tab"><span class="tab"><span class="meta">periods</span>: <a class="support type" href="int.doc.html">Int</a></span></span></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"><span class="tab">): [<a class="support type" href="activitycount.doc.html">ActivityCount</a>] </span></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code"></td></tr><tr class="row"><td id="L28" class="td-index">28</td><td id="LC28" class="td-code"><span class="tab"><span class="meta">contributors</span>(</span></td></tr><tr class="row"><td id="L29" class="td-index">29</td><td id="LC29" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L30" class="td-index">30</td><td id="LC30" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L31" class="td-index">31</td><td id="LC31" class="td-code"><span class="tab"><span class="tab"><span class="meta">only_humans</span>: <a class="support type" href="boolean.doc.html">Boolean</a></span></span></td></tr><tr class="row"><td id="L32" class="td-index">32</td><td id="LC32" class="td-code"><span class="tab">): [<a class="support type" href="identity.doc.html">Identity</a>] </span></td></tr><tr class="row"><td id="L33" class="td-index">33</td><td id="LC33" class="td-code"></td></tr><tr class="row"><td id="L34" class="td-index">34</td><td id="LC34" class="td-code"><span class="tab"><span class="meta">members</span>(<span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>, <span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>): [<a class="support type" href="identity.doc.html">Identity</a>] </span></td></tr><tr class="row"><td id="L35" class="td-index">35</td><td id="LC35" class="td-code"></td></tr><tr class="row"><td id="L36" class="td-index">36</td><td id="LC36" class="td-code">}</td></tr></tbody></table></code>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h2 id="required-by" class="graphidocs-section__title slds-text-heading--medium slds-m-top--small">
+            <a href="#required-by">
+                <i class="material-icons">link</i>
+            </a>
+            Required by
+        </h2>
+        <ul class="require-by">
+          <li>
+      <a href="jenkinsbuild.doc.html" title="
+        JenkinsBuild - 
+      ">
+        JenkinsBuild<em></em>
+      </a>
+    <li><li>
+      <a href="query.doc.html" title="
+        Query - 
+      ">
+        Query<em></em>
+      </a>
+    <li>
+          </ul>
+    </div>
+</section>
+<footer>
+<div class="container slds-p-around--large">
+    <p class="slds-text-align--right slds-text-title--caps">
+        Generated with <a href="" target="_blank">graphidocs 1.0.6</a>
+    </p>
+</div>
+</footer>
+</main>
+    <script src="./scripts/focus-active.js"></script>
+    <script src="./scripts/filter-types.js"></script>
+    <script src="./scripts/toggle-navigation.js"></script>
+</body>

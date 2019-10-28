@@ -23,6 +23,8 @@ client = tm.Client(**credentials)
 Team Machine provides a [GraphQL API](https://graphql.org/) that exposes your company's aggregated data sources. Using GraphQL allows users
 to construct flexible queries to answer their specific questions, because no two companies are alike.
 
+See [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/team-machine/python-sdk/master/docs/schema/index.html) for the API schema documentation.
+
 The API is split into two distinct types of query: node queries and network queries. Node queries allow a user to select a node in the network
 and request related data such as commits in a code repository or people working on a Jira project. Network queries return a network of nodes and
 links, which show higher level information about the organisation such as collaboration or contributions.
