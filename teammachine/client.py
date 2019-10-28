@@ -10,7 +10,7 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
-from .fields import NodeField, Query
+from .fields import NodeField, ObjectField, Query
 
 try:
     import pandas as pd
@@ -129,6 +129,9 @@ class GQL:
         self.auth = auth
 
     def request(self, query):
+        if isinstance(query, ObjectField):
+            query = str(query)
+
         response = requests.post(self.query_url, json={"query": query}, auth=self.auth)
 
         try:
