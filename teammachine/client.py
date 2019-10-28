@@ -119,8 +119,7 @@ class ClientQuery(NodeField):
 
     def request(self):
         query = Query(**{self._name: self})
-        result = self._gql.request(str(query))
-        return QueryResult(result["data"], query)
+        return self._gql.request(str(query))
 
 
 class GQL:
@@ -141,7 +140,9 @@ class GQL:
                 response.status_code, response.text, query
             )
 
-        return response.json()
+        result = response.json()
+        # TODO: Error handling
+        return QueryResult(result["data"])
 
 
 class Networks:
@@ -197,7 +198,7 @@ class Networks:
                 )
             )
 
-            data = result["data"][query_name]
+            data = result[query_name]
             return Network(data["nodes"], data["links"])
 
         return wrapper
@@ -220,8 +221,7 @@ class Network:
 
 
 class QueryResult(Mapping):
-    def __init__(self, data, query):
-        self.query = query
+    def __init__(self, data):
         self._data = data
 
     def __getitem__(self, key):
