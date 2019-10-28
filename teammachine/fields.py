@@ -1,6 +1,13 @@
 from collections import Mapping
 
-__all__ = ["Query", "ObjectField", "EventField", "IdentityField", "NodeField"]
+__all__ = [
+    "Query",
+    "ObjectField",
+    "EventField",
+    "IdentityField",
+    "NodeField",
+    "NetworkField",
+]
 
 
 def _format_date(value):
@@ -202,3 +209,10 @@ class NodeField(ObjectField):
                 start_date=start_date, end_date=end_date, **kwargs
             )
         )
+
+
+class NetworkField(ObjectField):
+    default_fields = {
+        "nodes": NodeField(),
+        "links": ObjectField("source", "target", "weight", "type"),
+    }

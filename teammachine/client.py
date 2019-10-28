@@ -1,5 +1,4 @@
 import re
-import types
 from collections import Mapping
 from time import time
 from uuid import uuid4
@@ -10,7 +9,7 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
-from .fields import NodeField, ObjectField, Query
+from .fields import NetworkField, NodeField, ObjectField, Query
 
 try:
     import pandas as pd
@@ -101,25 +100,7 @@ class Client:
         self.networks = Networks(self.gql)
 
         for k, v in _node_types.items():
-            setattr(self, k, ClientQuery(v, self.gql))
-
-
-class ClientQuery(NodeField):
-    def __init__(self, name, gql, *fields, **object_fields):
-        self._name = name
-        self._gql = gql
-        super(ClientQuery, self).__init__(*fields, **object_fields)
-
-    def _clone(self, *args, **kwargs):
-        instance = self.__class__(
-            self._name, self._gql, *args, **{**self._fields, **kwargs}
-        )
-        instance._args = self._args
-        return instance
-
-    def request(self):
-        query = Query(**{self._name: self})
-        return self._gql.request(str(query))
+            setattr(self, k, NodeQuery(v, self.gql))
 
 
 class GQL:
@@ -145,79 +126,55 @@ class GQL:
         return QueryResult(result["data"])
 
 
-class Networks:
-    NETWORKS = {
-        "backbone": "backbone",
-        "code": "codeNetwork",
-        "collaboration": "collaborationNetwork",
-        "contribution": "contributionNetwork",
-        "conversations": "conversationsNetwork",
-        "files": "fileHierarchy",
-        "edited_files": "editedFiles",
-    }
+class ClientQuery:
+    def __init__(self, name, gql, *fields, **object_fields):
+        self._name = name
+        self._gql = gql
+        super(ClientQuery, self).__init__(*fields, **object_fields)
 
+    def _clone(self, *args, **kwargs):
+        instance = self.__class__(
+            self._name, self._gql, *args, **{**self._fields, **kwargs}
+        )
+        instance._args = self._args
+        return instance
+
+    def request(self):
+        query = Query(**{self._name: self})
+        return self._gql.request(str(query))
+
+
+class NodeQuery(ClientQuery, NodeField):
+    pass
+
+
+class NetworkQuery(ClientQuery, NetworkField):
+    def request(self):
+        query = Query(**{self._name: self})
+        result = self._gql.request(str(query))
+        nodes = result[self._name]["nodes"]
+        links = result[self._name]["links"]
+        return NetworkResult(nodes, links)
+
+
+# TODO: generate from gql schema
+_network_types = {
+    "backbone": "backbone",
+    "code": "codeNetwork",
+    "collaboration": "collaborationNetwork",
+    "contribution": "contributionNetwork",
+    "conversations": "conversationsNetwork",
+    "files": "fileHierarchy",
+    "edited_files": "editedFiles",
+}
+
+
+class Networks:
     def __init__(self, gql):
         self._gql = gql
 
-        for method_name, query_name in self.NETWORKS.items():
-            method = types.MethodType(self._wrap_query(method_name, query_name), self)
-            setattr(self, method_name, method)
-
-    def _wrap_query(self, method_name, query_name):
-        # TODO: get method signature from schema
-        def wrapper(self, start_date=None, end_date=None, **kwargs):
-            query_params = {"start_date": start_date, "end_date": end_date, **kwargs}
-            query_filter = ", ".join(
-                '{name}:"{value}"'.format(name=name, value=value)
-                for name, value in query_params.items()
-                if value is not None
-            )
-            if query_filter:
-                query_filter = "(" + query_filter + ")"
-
-            result = self._gql.request(
-                """
-                query {{
-                    {query_name}{query_filter} {{
-                        nodes {{
-                            tm_id
-                            tm_display_name
-                            node_type
-                            url
-                        }}
-                        links {{
-                            source
-                            target
-                            weight
-                            type
-                        }}
-                    }}
-                }}
-            """.format(
-                    query_name=query_name, query_filter=query_filter
-                )
-            )
-
-            data = result[query_name]
-            return Network(data["nodes"], data["links"])
-
-        return wrapper
-
-
-class Network:
-    def __init__(self, nodes, edges):
-        self.nodes = nodes
-        self.edges = edges
-
-        self.graph = nx.DiGraph()
-
-        for node in self.nodes:
-            self.graph.add_node(node["tm_id"], **node)
-
-        for edge in self.edges:
-            self.graph.add_edge(
-                edge["source"], edge["target"], weight=edge["weight"], type=edge["type"]
-            )
+        for k, v in _network_types.items():
+            setattr(self, k, NetworkQuery(v, self._gql))
 
 
 class QueryResult(Mapping):
@@ -248,6 +205,21 @@ class QueryResult(Mapping):
             self._dataframes = DataFrames(self._data)
 
         return self._dataframes
+
+
+class NetworkResult(QueryResult):
+    def __init__(self, nodes, links):
+        self._data = {"nodes": nodes, "links": links}
+
+        self.graph = nx.DiGraph()
+
+        for node in nodes:
+            self.graph.add_node(node["tm_id"], **node)
+
+        for edge in links:
+            self.graph.add_edge(
+                edge["source"], edge["target"], weight=edge["weight"], type=edge["type"]
+            )
 
 
 class DataFrames:
