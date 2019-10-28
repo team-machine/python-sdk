@@ -126,29 +126,31 @@ class GQL:
         return QueryResult(result["data"])
 
 
-class ClientQuery:
-    def __init__(self, name, gql, *fields, **object_fields):
+class ClientQuery(Query):
+    def __init__(self, name, gql, *args, **kwargs):
         self._name = name
         self._gql = gql
-        super(ClientQuery, self).__init__(*fields, **object_fields)
+        self._query = self._field_class(*args, **kwargs)
+        super(ClientQuery, self).__init__(**{name: self._query})
 
     def _clone(self, *args, **kwargs):
         instance = self.__class__(
-            self._name, self._gql, *args, **{**self._fields, **kwargs}
+            self._name, self._gql, *args, **{**self._query._fields, **kwargs}
         )
         instance._args = self._args
         return instance
 
     def request(self):
-        query = Query(**{self._name: self})
-        return self._gql.request(str(query))
+        return self._gql.request(self)
 
 
 class NodeQuery(ClientQuery, NodeField):
-    pass
+    _field_class = NodeField
 
 
-class NetworkQuery(ClientQuery, NetworkField):
+class NetworkQuery(ClientQuery):
+    _field_class = NetworkField
+
     def request(self):
         query = Query(**{self._name: self})
         result = self._gql.request(str(query))
