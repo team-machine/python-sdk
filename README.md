@@ -117,7 +117,7 @@ query {
     CodeRepo {
         tm_id
         tm_display_name
-        activity(start_date: '2019-01-01') {
+        activity(start_date: "2019-01-01") {
             tm_id
             created_at
         }
