@@ -137,7 +137,12 @@ class ClientQuery(Query):
         instance = self.__class__(
             self._name, self._gql, *args, **{**self._query._fields, **kwargs}
         )
-        instance._args = self._args
+        instance._query._args = self._query._args
+        return instance
+
+    def __call__(self, **kwargs):
+        instance = self._clone()
+        instance._query._args = {**instance._query._args, **kwargs}
         return instance
 
     def request(self):
