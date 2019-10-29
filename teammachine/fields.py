@@ -1,4 +1,4 @@
-from collections import Mapping
+from collections.abc import Mapping
 
 __all__ = [
     "Query",
