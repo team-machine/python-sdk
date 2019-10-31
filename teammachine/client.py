@@ -9,7 +9,8 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
-from .fields import NetworkField, NodeField, ObjectField, Query
+from .fields import (IdentityField, NetworkField, NodeField, ObjectField,
+                     Query, WorkContainerField)
 
 try:
     import pandas as pd
@@ -70,62 +71,6 @@ class Auth(AuthBase):
         }
 
 
-# TODO: generate from gql schema
-_node_types = {
-    "slack_channel": "SlackChannel",
-    "identity": "Identity",
-    "code_repo": "CodeRepo",
-    "code_folder": "CodeFolder",
-    "code_file": "CodeFile",
-    "jira_project": "JiraProject",
-    "jira_issue": "JiraIssue",
-    "dropbox_folder": "DropboxFolder",
-    "dropbox_file": "DropboxFile",
-    "work_container": "WorkContainer",
-}
-
-
-class Client:
-    def __init__(
-        self,
-        client_id,
-        private_key,
-        query_url=QUERY_URL,
-        authorization_url=AUTHORIZATION_URL,
-    ):
-        self._query_url = query_url
-        self.auth = Auth(client_id, private_key, authorization_url)
-
-        self.gql = GQL(query_url, self.auth)
-        self.networks = Networks(self.gql)
-
-        for k, v in _node_types.items():
-            setattr(self, k, NodeQuery(v, self.gql))
-
-
-class GQL:
-    def __init__(self, query_url, auth):
-        self.query_url = query_url
-        self.auth = auth
-
-    def request(self, query):
-        if isinstance(query, ObjectField):
-            query = str(query)
-
-        response = requests.post(self.query_url, json={"query": query}, auth=self.auth)
-
-        try:
-            response.raise_for_status()
-        except requests.exceptions.HTTPError:
-            raise requests.exceptions.HTTPError(
-                response.status_code, response.text, query
-            )
-
-        result = response.json()
-        # TODO: Error handling
-        return QueryResult(result["data"])
-
-
 class ClientQuery(Query):
     def __init__(self, name, gql, *args, **kwargs):
         self._name = name
@@ -153,6 +98,14 @@ class NodeQuery(ClientQuery, NodeField):
     _field_class = NodeField
 
 
+class IdentityQuery(ClientQuery, IdentityField):
+    _field_class = IdentityField
+
+
+class WorkContainerQuery(ClientQuery, WorkContainerField):
+    _field_class = WorkContainerField
+
+
 class NetworkQuery(ClientQuery):
     _field_class = NetworkField
 
@@ -161,6 +114,62 @@ class NetworkQuery(ClientQuery):
         nodes = result[self._name]["nodes"]
         links = result[self._name]["links"]
         return NetworkResult(nodes, links)
+
+
+# TODO: generate from gql schema
+_node_types = {
+    "slack_channel": ("SlackChannel", WorkContainerQuery),
+    "identity": ("Identity", IdentityQuery),
+    "code_repo": ("CodeRepo", WorkContainerQuery),
+    "code_folder": ("CodeFolder", NodeQuery),
+    "code_file": ("CodeFile", NodeQuery),
+    "jira_project": ("JiraProject", WorkContainerQuery),
+    "jira_issue": ("JiraIssue", NodeQuery),
+    "dropbox_folder": ("DropboxFolder", NodeQuery),
+    "dropbox_file": ("DropboxFile", NodeQuery),
+    "work_container": ("WorkContainer", WorkContainerQuery),
+}
+
+
+class Client:
+    def __init__(
+        self,
+        client_id,
+        private_key,
+        query_url=QUERY_URL,
+        authorization_url=AUTHORIZATION_URL,
+    ):
+        self._query_url = query_url
+        self.auth = Auth(client_id, private_key, authorization_url)
+
+        self.gql = GQL(query_url, self.auth)
+        self.networks = Networks(self.gql)
+
+        for k, (node_type, query_class) in _node_types.items():
+            setattr(self, k, query_class(node_type, self.gql))
+
+
+class GQL:
+    def __init__(self, query_url, auth):
+        self.query_url = query_url
+        self.auth = auth
+
+    def request(self, query):
+        if isinstance(query, ObjectField):
+            query = str(query)
+
+        response = requests.post(self.query_url, json={"query": query}, auth=self.auth)
+
+        try:
+            response.raise_for_status()
+        except requests.exceptions.HTTPError:
+            raise requests.exceptions.HTTPError(
+                response.status_code, response.text, query
+            )
+
+        result = response.json()
+        # TODO: Error handling
+        return QueryResult(result["data"])
 
 
 # TODO: generate from gql schema

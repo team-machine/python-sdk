@@ -7,6 +7,7 @@ __all__ = [
     "ObjectField",
     "EventField",
     "IdentityField",
+    "WorkContainerField",
     "NodeField",
     "NetworkField",
     "Frequency",
@@ -34,6 +35,8 @@ def _format_argument(name, value):
 
     if isinstance(value, str):
         value = '"{}"'.format(value)
+    elif isinstance(value, bool):
+        value = "{}".format("true" if value else "false")
     elif isinstance(value, Mapping):
         args = ", ".join(_format_argument(k, v) for k, v in value.items())
         value = "{%s}" % args
@@ -202,24 +205,6 @@ class Query(ObjectField):
         )
 
 
-class IdentityField(ObjectField):
-    default_fields = {
-        "tm_id": "tm_id",
-        "tm_display_name": "tm_display_name",
-        "is_human": "is_human",
-    }
-
-
-class EventField(ObjectField):
-    default_fields = {
-        "tm_id": "tm_id",
-        "tm_display_name": "tm_display_name",
-        "node_type": "node_type",
-        "created_at": "created_at",
-        "created_by": IdentityField(),
-    }
-
-
 class NodeField(ObjectField):
     default_fields = {
         "tm_id": "tm_id",
@@ -240,6 +225,43 @@ class NodeField(ObjectField):
                 start_date=start_date, end_date=end_date, **kwargs
             )
         )
+
+
+class IdentityField(NodeField):
+    default_fields = {
+        "tm_id": "tm_id",
+        "tm_display_name": "tm_display_name",
+        "is_human": "is_human",
+    }
+
+    def containers(self, start_date=None, end_date=None, **kwargs):
+        return self.fields(
+            containers=WorkContainerField().arguments(
+                start_date=start_date, end_date=end_date, **kwargs
+            )
+        )
+
+
+class WorkContainerField(NodeField):
+    def contributors(self, start_date=None, end_date=None, only_humans=False, **kwargs):
+        return self.fields(
+            contributors=IdentityField().arguments(
+                start_date=start_date,
+                end_date=end_date,
+                only_humans=only_humans,
+                **kwargs
+            )
+        )
+
+
+class EventField(ObjectField):
+    default_fields = {
+        "tm_id": "tm_id",
+        "tm_display_name": "tm_display_name",
+        "node_type": "node_type",
+        "created_at": "created_at",
+        "created_by": IdentityField(),
+    }
 
 
 class NetworkField(ObjectField):
