@@ -157,8 +157,7 @@ class NetworkQuery(ClientQuery):
     _field_class = NetworkField
 
     def request(self):
-        query = Query(**{self._name: self})
-        result = self._gql.request(str(query))
+        result = self._gql.request(self)
         nodes = result[self._name]["nodes"]
         links = result[self._name]["links"]
         return NetworkResult(nodes, links)
