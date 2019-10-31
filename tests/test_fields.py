@@ -17,6 +17,14 @@ class TestField:
         field = tm.Field().arguments(a=1, b="2").arguments(c=3)
         assert str(field) == '(a:1, b:"2", c:3)'
 
+    def test_with_object_arguments(self):
+        field = tm.Field().arguments(a={"b": "1", "c": 2})
+        assert str(field) == '(a:{b:"1", c:2})'
+
+    def test_frequency(self):
+        field = tm.Field().arguments(a={"frequency": tm.Frequency("month")})
+        assert str(field) == "(a:{frequency:month})"
+
 
 class TestObjectField:
     def default_fields(self, indent=1):

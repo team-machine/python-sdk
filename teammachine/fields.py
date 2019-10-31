@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from enum import Enum
 
 __all__ = [
     "Query",
@@ -8,7 +9,17 @@ __all__ = [
     "IdentityField",
     "NodeField",
     "NetworkField",
+    "Frequency",
 ]
+
+
+class Frequency(Enum):
+    DAY = "day"
+    WEEK = "week"
+    MONTH = "month"
+
+    def __str__(self):
+        return self.value
 
 
 def _format_date(value):
@@ -23,6 +34,9 @@ def _format_argument(name, value):
 
     if isinstance(value, str):
         value = '"{}"'.format(value)
+    elif isinstance(value, Mapping):
+        args = ", ".join(_format_argument(k, v) for k, v in value.items())
+        value = "{%s}" % args
 
     return "{name}:{value}".format(name=name, value=value)
 
@@ -216,6 +230,13 @@ class NodeField(ObjectField):
     def activity(self, start_date=None, end_date=None, **kwargs):
         return self.fields(
             activity=EventField().arguments(
+                start_date=start_date, end_date=end_date, **kwargs
+            )
+        )
+
+    def activity_count(self, start_date, end_date, **kwargs):
+        return self.fields(
+            activity_count=ObjectField("count", "date").arguments(
                 start_date=start_date, end_date=end_date, **kwargs
             )
         )
