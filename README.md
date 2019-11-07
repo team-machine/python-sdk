@@ -40,7 +40,7 @@ result = client.code_repo.request()
 This will return a `QueryResult` object, which is list of dictionaries that contain `tm_id`, `tm_display_name`, and `node_type`.
 
 Because further analysis of `QueryResults` will often involve Pandas, it's possible to access Pandas a `DataFrame` representation of the result
-from the `QueryResult.dataframes` attribute. The names of the dataframes will follow the results of the API e.g. `result.dataframe.code_repo` will
+from the `QueryResult.dataframes` attribute. The names of the dataframes will follow the results of the API e.g. `result.dataframes.code_repo` will
 return a `DataFrame` like:
 
 ```
@@ -68,10 +68,10 @@ The currently supported top-level node queries are:
 Arguments can be passed to the query by calling it or calling the `.arguments` method, e.g. to filter the query to code repositories called "something":
 
 ```
-result = client.code_repo(name='something')
+query = client.code_repo(name='something')
 
 # equivalent to:
-result = client_code_repo.arguments(name='something')
+query = client_code_repo.arguments(name='something')
 ```
 
 ##### Query Fields
@@ -79,20 +79,20 @@ result = client_code_repo.arguments(name='something')
 Additional fields can be requested by calling the `.fields` parameter, e.g. to include the repositories URL:
 
 ```
-result = client.code_repo.fields('url')
+query = client.code_repo.fields('url')
 ```
 
 You can also request nested objects using an `ObjectField` (or one of it's subclasses: `EventField`, `IdentityField`, `NodeField`), e.g.
 to request commits in the code repository:
 
 ```
-result = client.code_repo.fields(activity=tm.EventField(start_date='2019-01-01'))
+query = client.code_repo.fields(activity=tm.EventField(start_date='2019-01-01'))
 ```
 
 Because activity is such a commonly requested field node queries include an `activity` method that can be used instead:
 
 ```
-result = client.code_repo.activity(start_date='2019-01-01')
+query = client.code_repo.activity(start_date='2019-01-01')
 ```
 
 `ObjectFields` are instantiated with the desired fields, and like node queries can be modified with `.arguments` and `.fields` (node queries are in fact `NodeFields` with an additional `.request` conevenience method)
