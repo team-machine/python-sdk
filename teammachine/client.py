@@ -9,8 +9,14 @@ import jwt
 import requests
 from requests.auth import AuthBase
 
-from .fields import (IdentityField, NetworkField, NodeField, ObjectField,
-                     Query, WorkContainerField)
+from .fields import (
+    IdentityField,
+    NetworkField,
+    NodeField,
+    ObjectField,
+    Query,
+    WorkContainerField,
+)
 
 try:
     import pandas as pd
@@ -131,6 +137,19 @@ _node_types = {
 }
 
 
+class GraphQLException(Exception):
+    """Error response from GraphQL"""
+
+    def __init__(self, errors):
+        super().__init__(self._message_for_errors(errors))
+
+    @staticmethod
+    def _message_for_errors(errors):
+        return f"{len(errors)} error(s)" + (
+            "" if not errors else (": " + ",\n".join([e.get("message", "") for e in errors]))
+        )
+
+
 class Client:
     def __init__(
         self,
@@ -168,7 +187,9 @@ class GQL:
             )
 
         result = response.json()
-        # TODO: Error handling
+        if result.get("errors"):
+            raise GraphQLException(result["errors"])
+
         return QueryResult(result["data"])
 
 
