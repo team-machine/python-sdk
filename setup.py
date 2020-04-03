@@ -37,7 +37,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Topic :: Internet :: WWW/HTTP",
     ],
-    python_requires=">=3.5",
+    python_requires=">=3.6",
     install_requires=requires,
     tests_require=tests_require,
     extras_require={"pandas": ["pandas"]},

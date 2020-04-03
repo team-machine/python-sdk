@@ -1,6 +1,7 @@
 import pytest
 
 import teammachine as tm
+from teammachine.client import GraphQLException
 
 
 class TestField:
@@ -112,3 +113,50 @@ class TestQuery:
         query = tm.Query(A=tm.ObjectField("a", "b"))
 
         assert str(query) == "query {\n  A{\n    a\n    b\n  }\n}"
+
+
+class TestGraphQLException:
+    def test_exception_message_typical(self):
+        resp = {
+            "errors": [
+                {
+                    "message": "something went bad",
+                    "locations": [{ "line": 2, "column": 3 }],
+                    "path": ["Entity"],
+                    "extensions": {
+                        "code": "INTERNAL_SERVER_ERROR",
+                        "exception": {
+                            "name": "error",
+                            "length": 12,
+                            "severity": "ERROR",
+                            "code": "CODE",
+                            "file": "FILE",
+                            "line": "123",
+                            "routine": "abc",
+                            "stacktrace": [ "stacktrace lines", ]
+                        }
+                    }
+                }
+            ],
+            "data": {
+                "Tag": "null"
+            }
+        }
+
+        exc = GraphQLException(resp["errors"])
+        assert "1 error(s): something went bad" == str(exc)
+
+    def test_exception_message_multiple(self):
+        resp = {
+            "errors": [
+                {"message": "error 1"},
+                {"message": "error 2"},
+                {"message": "error 3"},
+            ],
+            "data": {
+                "Tag": "null"
+            }
+        }
+
+        exc = GraphQLException(resp["errors"])
+        assert "3 error(s): error 1,\nerror 2,\nerror 3" == str(exc)
