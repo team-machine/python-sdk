@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
-    <title>PredicateOp</title>
+    <title>EmailMessageRecipient</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -95,26 +95,6 @@
                 ImpermanentOrderBy
             </a>
         </li>
-        <li class="slds-is-active" title="PredicateOp">
-            <a href="predicateop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                PredicateOp
-            </a>
-        </li>
-        <li  title="TimeSeriesAggregationOp">
-            <a href="timeseriesaggregationop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesAggregationOp
-            </a>
-        </li>
-        <li  title="TimeSeriesInterval">
-            <a href="timeseriesinterval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesInterval
-            </a>
-        </li>
-        <li  title="TimeSeriesName">
-            <a href="timeseriesname.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesName
-            </a>
-        </li>
         <li  title="__DirectiveLocation">
             <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __DirectiveLocation
@@ -138,6 +118,11 @@
         <li  title="Document">
             <a href="document.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Document
+            </a>
+        </li>
+        <li  title="EmailMessage">
+            <a href="emailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessage
             </a>
         </li>
         <li  title="Event">
@@ -260,6 +245,11 @@
                 DropboxRev
             </a>
         </li>
+        <li class="slds-is-active" title="EmailMessageRecipient">
+            <a href="emailmessagerecipient.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessageRecipient
+            </a>
+        </li>
         <li  title="EnrichedNodeProperty">
             <a href="enrichednodeproperty.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 EnrichedNodeProperty
@@ -283,6 +273,11 @@
         <li  title="GSuiteCalendarEvent">
             <a href="gsuitecalendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 GSuiteCalendarEvent
+            </a>
+        </li>
+        <li  title="GSuiteEmailMessage">
+            <a href="gsuiteemailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GSuiteEmailMessage
             </a>
         </li>
         <li  title="Identity">
@@ -365,11 +360,6 @@
                 Team
             </a>
         </li>
-        <li  title="TimeSeriesSample">
-            <a href="timeseriessample.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesSample
-            </a>
-        </li>
         <li  title="TrelloAction">
             <a href="trelloaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloAction
@@ -383,6 +373,11 @@
         <li  title="TrelloCard">
             <a href="trellocard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloCard
+            </a>
+        </li>
+        <li  title="TrelloList">
+            <a href="trellolist.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TrelloList
             </a>
         </li>
         <li  title="TrelloOrganisation">
@@ -455,11 +450,6 @@
                 NodeTagCountInput
             </a>
         </li>
-        <li  title="Predicate">
-            <a href="predicate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Predicate
-            </a>
-        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -495,8 +485,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
-        <h1 class="slds-text-heading--large">PredicateOp</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">EmailMessageRecipient</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -508,7 +498,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">PredicateOp</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">eq</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">neq</span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">gt</span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="meta">lt</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">EmailMessageRecipient</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">recipient</span>: <a class="support type" href="identity.doc.html">Identity</a>! </span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">recipient_type</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
@@ -521,10 +511,16 @@
         </h2>
         <ul class="require-by">
           <li>
-      <a href="predicate.doc.html" title="
-        Predicate - 
+      <a href="emailmessage.doc.html" title="
+        EmailMessage - 
       ">
-        Predicate<em></em>
+        EmailMessage<em></em>
+      </a>
+    <li><li>
+      <a href="gsuiteemailmessage.doc.html" title="
+        GSuiteEmailMessage - 
+      ">
+        GSuiteEmailMessage<em></em>
       </a>
     <li>
           </ul>

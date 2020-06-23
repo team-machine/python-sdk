@@ -95,26 +95,6 @@
                 ImpermanentOrderBy
             </a>
         </li>
-        <li  title="PredicateOp">
-            <a href="predicateop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                PredicateOp
-            </a>
-        </li>
-        <li  title="TimeSeriesAggregationOp">
-            <a href="timeseriesaggregationop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesAggregationOp
-            </a>
-        </li>
-        <li  title="TimeSeriesInterval">
-            <a href="timeseriesinterval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesInterval
-            </a>
-        </li>
-        <li  title="TimeSeriesName">
-            <a href="timeseriesname.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesName
-            </a>
-        </li>
         <li  title="__DirectiveLocation">
             <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __DirectiveLocation
@@ -138,6 +118,11 @@
         <li  title="Document">
             <a href="document.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Document
+            </a>
+        </li>
+        <li  title="EmailMessage">
+            <a href="emailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessage
             </a>
         </li>
         <li  title="Event">
@@ -260,6 +245,11 @@
                 DropboxRev
             </a>
         </li>
+        <li  title="EmailMessageRecipient">
+            <a href="emailmessagerecipient.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessageRecipient
+            </a>
+        </li>
         <li  title="EnrichedNodeProperty">
             <a href="enrichednodeproperty.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 EnrichedNodeProperty
@@ -283,6 +273,11 @@
         <li  title="GSuiteCalendarEvent">
             <a href="gsuitecalendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 GSuiteCalendarEvent
+            </a>
+        </li>
+        <li  title="GSuiteEmailMessage">
+            <a href="gsuiteemailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GSuiteEmailMessage
             </a>
         </li>
         <li  title="Identity">
@@ -365,11 +360,6 @@
                 Team
             </a>
         </li>
-        <li  title="TimeSeriesSample">
-            <a href="timeseriessample.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesSample
-            </a>
-        </li>
         <li  title="TrelloAction">
             <a href="trelloaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloAction
@@ -383,6 +373,11 @@
         <li  title="TrelloCard">
             <a href="trellocard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloCard
+            </a>
+        </li>
+        <li  title="TrelloList">
+            <a href="trellolist.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TrelloList
             </a>
         </li>
         <li  title="TrelloOrganisation">
@@ -453,11 +448,6 @@
         <li  title="NodeTagCountInput">
             <a href="nodetagcountinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 NodeTagCountInput
-            </a>
-        </li>
-        <li  title="Predicate">
-            <a href="predicate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Predicate
             </a>
         </li>
     </ul>
@@ -594,6 +584,18 @@
         DropboxRev<em></em>
       </a>
     <li><li>
+      <a href="emailmessage.doc.html" title="
+        EmailMessage - 
+      ">
+        EmailMessage<em></em>
+      </a>
+    <li><li>
+      <a href="emailmessagerecipient.doc.html" title="
+        EmailMessageRecipient - 
+      ">
+        EmailMessageRecipient<em></em>
+      </a>
+    <li><li>
       <a href="enrichednodeproperty.doc.html" title="
         EnrichedNodeProperty - 
       ">
@@ -634,6 +636,12 @@
         GSuiteCalendarEvent - 
       ">
         GSuiteCalendarEvent<em></em>
+      </a>
+    <li><li>
+      <a href="gsuiteemailmessage.doc.html" title="
+        GSuiteEmailMessage - 
+      ">
+        GSuiteEmailMessage<em></em>
       </a>
     <li><li>
       <a href="identity.doc.html" title="
@@ -685,21 +693,19 @@
       </a>
     <li><li>
       <a href="nodepropertyinput.doc.html" title="
-        NodePropertyInput - 
+        NodePropertyInput -  using this data struct because
+ - a list of name - key - value per property has very big payload overhead due to prop name repetition
+ - key-value json falls apart as JSON when keys (e.g. tm ids) contain hyphens or other unsupported chars
       ">
-        NodePropertyInput<em></em>
+        NodePropertyInput<em> using this data struct because
+ - a list of name - key - value per property has very big payload overhead due to prop name repetition
+ - key-value json falls apart as JSON when keys (e.g. tm ids) contain hyphens or other unsupported chars</em>
       </a>
     <li><li>
       <a href="nodetagcountinput.doc.html" title="
         NodeTagCountInput - 
       ">
         NodeTagCountInput<em></em>
-      </a>
-    <li><li>
-      <a href="predicate.doc.html" title="
-        Predicate - 
-      ">
-        Predicate<em></em>
       </a>
     <li><li>
       <a href="query.doc.html" title="
@@ -768,12 +774,6 @@
         Team<em></em>
       </a>
     <li><li>
-      <a href="timeseriessample.doc.html" title="
-        TimeSeriesSample - 
-      ">
-        TimeSeriesSample<em></em>
-      </a>
-    <li><li>
       <a href="trackedproject.doc.html" title="
         TrackedProject - 
       ">
@@ -796,6 +796,12 @@
         TrelloCard - 
       ">
         TrelloCard<em></em>
+      </a>
+    <li><li>
+      <a href="trellolist.doc.html" title="
+        TrelloList - 
+      ">
+        TrelloList<em></em>
       </a>
     <li><li>
       <a href="trelloorganisation.doc.html" title="

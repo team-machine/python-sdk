@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphidocs.css" />
-    <title>TimeSeriesName</title>
+    <title>GSuiteEmailMessage</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -95,26 +95,6 @@
                 ImpermanentOrderBy
             </a>
         </li>
-        <li  title="PredicateOp">
-            <a href="predicateop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                PredicateOp
-            </a>
-        </li>
-        <li  title="TimeSeriesAggregationOp">
-            <a href="timeseriesaggregationop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesAggregationOp
-            </a>
-        </li>
-        <li  title="TimeSeriesInterval">
-            <a href="timeseriesinterval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesInterval
-            </a>
-        </li>
-        <li class="slds-is-active" title="TimeSeriesName">
-            <a href="timeseriesname.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesName
-            </a>
-        </li>
         <li  title="__DirectiveLocation">
             <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __DirectiveLocation
@@ -138,6 +118,11 @@
         <li  title="Document">
             <a href="document.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Document
+            </a>
+        </li>
+        <li  title="EmailMessage">
+            <a href="emailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessage
             </a>
         </li>
         <li  title="Event">
@@ -260,6 +245,11 @@
                 DropboxRev
             </a>
         </li>
+        <li  title="EmailMessageRecipient">
+            <a href="emailmessagerecipient.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessageRecipient
+            </a>
+        </li>
         <li  title="EnrichedNodeProperty">
             <a href="enrichednodeproperty.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 EnrichedNodeProperty
@@ -283,6 +273,11 @@
         <li  title="GSuiteCalendarEvent">
             <a href="gsuitecalendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 GSuiteCalendarEvent
+            </a>
+        </li>
+        <li class="slds-is-active" title="GSuiteEmailMessage">
+            <a href="gsuiteemailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GSuiteEmailMessage
             </a>
         </li>
         <li  title="Identity">
@@ -365,11 +360,6 @@
                 Team
             </a>
         </li>
-        <li  title="TimeSeriesSample">
-            <a href="timeseriessample.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesSample
-            </a>
-        </li>
         <li  title="TrelloAction">
             <a href="trelloaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloAction
@@ -383,6 +373,11 @@
         <li  title="TrelloCard">
             <a href="trellocard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloCard
+            </a>
+        </li>
+        <li  title="TrelloList">
+            <a href="trellolist.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TrelloList
             </a>
         </li>
         <li  title="TrelloOrganisation">
@@ -455,11 +450,6 @@
                 NodeTagCountInput
             </a>
         </li>
-        <li  title="Predicate">
-            <a href="predicate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Predicate
-            </a>
-        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -495,8 +485,8 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">ENUM</p>
-        <h1 class="slds-text-heading--large">TimeSeriesName</h1>
+        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <h1 class="slds-text-heading--large">GSuiteEmailMessage</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -508,7 +498,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">TimeSeriesName</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">WORK_ITEMS</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">CODE_COMMITS</span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">SLACK_MESSAGES</span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="meta">CONTEXT_EVENTS</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="meta">FILE_EDITS</span></span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">GSuiteEmailMessage</span> <span class="keyword operator ts">implements</span> <a class="support type" href="emailmessage.doc.html">EmailMessage</a>, <a class="support type" href="event.doc.html">Event</a>, <a class="support type" href="node.doc.html">Node</a> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">tm_id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">node_type</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">tm_display_name</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="meta">additional_properties</span>: [<a class="support type" href="enrichednodeproperty.doc.html">EnrichedNodeProperty</a>] </span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="meta">thread_id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"><span class="tab"><span class="meta">subject</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"><span class="tab"><span class="meta">from</span>: <a class="support type" href="identity.doc.html">Identity</a>! </span></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"><span class="tab"><span class="meta">recipients</span>: [<a class="support type" href="emailmessagerecipient.doc.html">EmailMessageRecipient</a>]! </span></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"><span class="tab"><span class="meta">created_by</span>: <a class="support type" href="identity.doc.html">Identity</a> </span></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"><span class="tab"><span class="meta">contained_in</span>: <a class="support type" href="workcontainer.doc.html">WorkContainer</a> </span></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"><span class="tab"><span class="meta">created_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>! </span></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>

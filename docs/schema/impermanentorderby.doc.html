@@ -95,26 +95,6 @@
                 ImpermanentOrderBy
             </a>
         </li>
-        <li  title="PredicateOp">
-            <a href="predicateop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                PredicateOp
-            </a>
-        </li>
-        <li  title="TimeSeriesAggregationOp">
-            <a href="timeseriesaggregationop.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesAggregationOp
-            </a>
-        </li>
-        <li  title="TimeSeriesInterval">
-            <a href="timeseriesinterval.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesInterval
-            </a>
-        </li>
-        <li  title="TimeSeriesName">
-            <a href="timeseriesname.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesName
-            </a>
-        </li>
         <li  title="__DirectiveLocation">
             <a href="directivelocation.spec.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 __DirectiveLocation
@@ -138,6 +118,11 @@
         <li  title="Document">
             <a href="document.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Document
+            </a>
+        </li>
+        <li  title="EmailMessage">
+            <a href="emailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessage
             </a>
         </li>
         <li  title="Event">
@@ -260,6 +245,11 @@
                 DropboxRev
             </a>
         </li>
+        <li  title="EmailMessageRecipient">
+            <a href="emailmessagerecipient.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EmailMessageRecipient
+            </a>
+        </li>
         <li  title="EnrichedNodeProperty">
             <a href="enrichednodeproperty.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 EnrichedNodeProperty
@@ -283,6 +273,11 @@
         <li  title="GSuiteCalendarEvent">
             <a href="gsuitecalendarevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 GSuiteCalendarEvent
+            </a>
+        </li>
+        <li  title="GSuiteEmailMessage">
+            <a href="gsuiteemailmessage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GSuiteEmailMessage
             </a>
         </li>
         <li  title="Identity">
@@ -365,11 +360,6 @@
                 Team
             </a>
         </li>
-        <li  title="TimeSeriesSample">
-            <a href="timeseriessample.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeSeriesSample
-            </a>
-        </li>
         <li  title="TrelloAction">
             <a href="trelloaction.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloAction
@@ -383,6 +373,11 @@
         <li  title="TrelloCard">
             <a href="trellocard.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 TrelloCard
+            </a>
+        </li>
+        <li  title="TrelloList">
+            <a href="trellolist.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                TrelloList
             </a>
         </li>
         <li  title="TrelloOrganisation">
@@ -455,11 +450,6 @@
                 NodeTagCountInput
             </a>
         </li>
-        <li  title="Predicate">
-            <a href="predicate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Predicate
-            </a>
-        </li>
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
@@ -508,7 +498,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">ImpermanentOrderBy</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">first_seen_at_asc</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">first_seen_at_desc</span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">enum</span> <span class="identifier">ImpermanentOrderBy</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="meta">tm_id_asc</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="meta">tm_id_desc</span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">created_at_asc</span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="meta">created_at_desc</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="meta">first_seen_at_asc</span></span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"></span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="meta">first_seen_at_desc</span></span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
@@ -521,10 +511,124 @@
         </h2>
         <ul class="require-by">
           <li>
+      <a href="codefile.doc.html" title="
+        CodeFile - 
+      ">
+        CodeFile<em></em>
+      </a>
+    <li><li>
+      <a href="codefolder.doc.html" title="
+        CodeFolder - 
+      ">
+        CodeFolder<em></em>
+      </a>
+    <li><li>
+      <a href="codepullrequest.doc.html" title="
+        CodePullRequest - 
+      ">
+        CodePullRequest<em></em>
+      </a>
+    <li><li>
+      <a href="coderepo.doc.html" title="
+        CodeRepo - 
+      ">
+        CodeRepo<em></em>
+      </a>
+    <li><li>
+      <a href="dropboxfile.doc.html" title="
+        DropboxFile - 
+      ">
+        DropboxFile<em></em>
+      </a>
+    <li><li>
+      <a href="dropboxfolder.doc.html" title="
+        DropboxFolder - 
+      ">
+        DropboxFolder<em></em>
+      </a>
+    <li><li>
+      <a href="githubissue.doc.html" title="
+        GitHubIssue - 
+      ">
+        GitHubIssue<em></em>
+      </a>
+    <li><li>
+      <a href="gsuitecalendarevent.doc.html" title="
+        GSuiteCalendarEvent - 
+      ">
+        GSuiteCalendarEvent<em></em>
+      </a>
+    <li><li>
+      <a href="identity.doc.html" title="
+        Identity - 
+      ">
+        Identity<em></em>
+      </a>
+    <li><li>
+      <a href="jiraepic.doc.html" title="
+        JiraEpic - 
+      ">
+        JiraEpic<em></em>
+      </a>
+    <li><li>
+      <a href="jiraissue.doc.html" title="
+        JiraIssue - 
+      ">
+        JiraIssue<em></em>
+      </a>
+    <li><li>
+      <a href="jiraproject.doc.html" title="
+        JiraProject - 
+      ">
+        JiraProject<em></em>
+      </a>
+    <li><li>
       <a href="query.doc.html" title="
         Query - 
       ">
         Query<em></em>
+      </a>
+    <li><li>
+      <a href="slackchannel.doc.html" title="
+        SlackChannel - 
+      ">
+        SlackChannel<em></em>
+      </a>
+    <li><li>
+      <a href="trackedproject.doc.html" title="
+        TrackedProject - 
+      ">
+        TrackedProject<em></em>
+      </a>
+    <li><li>
+      <a href="trelloboard.doc.html" title="
+        TrelloBoard - 
+      ">
+        TrelloBoard<em></em>
+      </a>
+    <li><li>
+      <a href="trellocard.doc.html" title="
+        TrelloCard - 
+      ">
+        TrelloCard<em></em>
+      </a>
+    <li><li>
+      <a href="trellolist.doc.html" title="
+        TrelloList - 
+      ">
+        TrelloList<em></em>
+      </a>
+    <li><li>
+      <a href="trelloorganisation.doc.html" title="
+        TrelloOrganisation - 
+      ">
+        TrelloOrganisation<em></em>
+      </a>
+    <li><li>
+      <a href="workcontainer.doc.html" title="
+        WorkContainer - 
+      ">
+        WorkContainer<em></em>
       </a>
     <li>
           </ul>
