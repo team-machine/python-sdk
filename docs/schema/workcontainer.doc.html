@@ -320,6 +320,46 @@
                 Organization
             </a>
         </li>
+        <li  title="PipedriveActivity">
+            <a href="pipedriveactivity.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveActivity
+            </a>
+        </li>
+        <li  title="PipedriveDeal">
+            <a href="pipedrivedeal.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveDeal
+            </a>
+        </li>
+        <li  title="PipedriveDealflowEvent">
+            <a href="pipedrivedealflowevent.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveDealflowEvent
+            </a>
+        </li>
+        <li  title="PipedriveFile">
+            <a href="pipedrivefile.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveFile
+            </a>
+        </li>
+        <li  title="PipedriveNote">
+            <a href="pipedrivenote.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveNote
+            </a>
+        </li>
+        <li  title="PipedriveOrganization">
+            <a href="pipedriveorganization.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveOrganization
+            </a>
+        </li>
+        <li  title="PipedrivePipeline">
+            <a href="pipedrivepipeline.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedrivePipeline
+            </a>
+        </li>
+        <li  title="PipedriveStage">
+            <a href="pipedrivestage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                PipedriveStage
+            </a>
+        </li>
         <li  title="Sensor">
             <a href="sensor.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Sensor
@@ -508,7 +548,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">interface</span> <span class="identifier">WorkContainer</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   A place where one or more people work or communicate toward a goal.</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="comment line">#   All containers contain Events and contributors. Some containers will also have </span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   explicit membership.</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"><span class="comment line">#   Some containers are *special* contexts, where specific work happens. For example </span></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   most repos will be</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="comment line">#   contexts, but some folders might not be (e.g. the project folder vs it's </span></span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="comment line">#   subfolders).</span></span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"><span class="meta">tm_id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"><span class="tab"><span class="meta">node_type</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"><span class="tab"><span class="meta">tm_display_name</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"><span class="tab"><span class="meta">first_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"><span class="tab"><span class="meta">last_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"><span class="tab"><span class="meta">daily_activity</span>(</span></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code"><span class="tab"><span class="tab"><span class="meta">node_type</span>: [<a class="support type" href="string.doc.html">String</a>]</span></span></td></tr><tr class="row"><td id="L28" class="td-index">28</td><td id="LC28" class="td-code"><span class="tab">): <a class="support type" href="float.doc.html">Float</a> </span></td></tr><tr class="row"><td id="L29" class="td-index">29</td><td id="LC29" class="td-code"></td></tr><tr class="row"><td id="L30" class="td-index">30</td><td id="LC30" class="td-code"><span class="tab"><span class="meta">activity</span>(<span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>, <span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>): [<a class="support type" href="event.doc.html">Event</a>] </span></td></tr><tr class="row"><td id="L31" class="td-index">31</td><td id="LC31" class="td-code"></td></tr><tr class="row"><td id="L32" class="td-index">32</td><td id="LC32" class="td-code"><span class="tab"><span class="meta">activity_count</span>(</span></td></tr><tr class="row"><td id="L33" class="td-index">33</td><td id="LC33" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L34" class="td-index">34</td><td id="LC34" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L35" class="td-index">35</td><td id="LC35" class="td-code"><span class="tab"><span class="tab"><span class="meta">frequency</span>: <a class="support type" href="frequency.doc.html">Frequency</a></span></span></td></tr><tr class="row"><td id="L36" class="td-index">36</td><td id="LC36" class="td-code"><span class="tab">): [<a class="support type" href="activitycount.doc.html">ActivityCount</a>] </span></td></tr><tr class="row"><td id="L37" class="td-index">37</td><td id="LC37" class="td-code"></td></tr><tr class="row"><td id="L38" class="td-index">38</td><td id="LC38" class="td-code"><span class="tab"><span class="meta">contributors</span>(</span></td></tr><tr class="row"><td id="L39" class="td-index">39</td><td id="LC39" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L40" class="td-index">40</td><td id="LC40" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L41" class="td-index">41</td><td id="LC41" class="td-code"><span class="tab"><span class="tab"><span class="meta">only_humans</span>: <a class="support type" href="boolean.doc.html">Boolean</a>,</span></span></td></tr><tr class="row"><td id="L42" class="td-index">42</td><td id="LC42" class="td-code"><span class="tab"><span class="tab"><span class="meta">order_by</span>: <a class="support type" href="impermanentorderby.doc.html">ImpermanentOrderBy</a>,</span></span></td></tr><tr class="row"><td id="L43" class="td-index">43</td><td id="LC43" class="td-code"><span class="tab"><span class="tab"><span class="meta">limit</span>: <a class="support type" href="int.doc.html">Int</a></span></span></td></tr><tr class="row"><td id="L44" class="td-index">44</td><td id="LC44" class="td-code"><span class="tab">): [<a class="support type" href="identity.doc.html">Identity</a>] </span></td></tr><tr class="row"><td id="L45" class="td-index">45</td><td id="LC45" class="td-code"></td></tr><tr class="row"><td id="L46" class="td-index">46</td><td id="LC46" class="td-code"><span class="tab"><span class="comment line">#   members(start_date: ISODateTime, end_date: ISODateTime): [Identity]!</span></span></td></tr><tr class="row"><td id="L47" class="td-index">47</td><td id="LC47" class="td-code"><span class="tab"><span class="meta">is_context</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></td></tr><tr class="row"><td id="L48" class="td-index">48</td><td id="LC48" class="td-code"></td></tr><tr class="row"><td id="L49" class="td-index">49</td><td id="LC49" class="td-code"><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L50" class="td-index">50</td><td id="LC50" class="td-code"></td></tr><tr class="row"><td id="L51" class="td-index">51</td><td id="LC51" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">interface</span> <span class="identifier">WorkContainer</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   A place where one or more people work or communicate toward a goal.</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"><span class="tab"><span class="comment line">#   All containers contain Events and contributors. Some containers will also have </span></span></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   explicit membership.</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"><span class="tab"><span class="comment line">#   Some containers are *special* contexts, where specific work happens. For example </span></span></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   most repos will be</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="comment line">#   contexts, but some folders might not be (e.g. the project folder vs it's </span></span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"><span class="tab"><span class="comment line">#   subfolders).</span></span></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"><span class="meta">tm_id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"><span class="tab"><span class="meta">node_type</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"><span class="tab"><span class="meta">tm_display_name</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a> </span></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"><span class="tab"><span class="meta">first_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"><span class="tab"><span class="meta">last_seen_at</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a> </span></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"><span class="tab"><span class="meta">daily_activity</span>(</span></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L28" class="td-index">28</td><td id="LC28" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L29" class="td-index">29</td><td id="LC29" class="td-code"><span class="tab"><span class="tab"><span class="meta">node_type</span>: [<a class="support type" href="string.doc.html">String</a>]</span></span></td></tr><tr class="row"><td id="L30" class="td-index">30</td><td id="LC30" class="td-code"><span class="tab">): <a class="support type" href="float.doc.html">Float</a> </span></td></tr><tr class="row"><td id="L31" class="td-index">31</td><td id="LC31" class="td-code"></td></tr><tr class="row"><td id="L32" class="td-index">32</td><td id="LC32" class="td-code"><span class="tab"><span class="meta">activity</span>(<span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>, <span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>): [<a class="support type" href="event.doc.html">Event</a>] </span></td></tr><tr class="row"><td id="L33" class="td-index">33</td><td id="LC33" class="td-code"></td></tr><tr class="row"><td id="L34" class="td-index">34</td><td id="LC34" class="td-code"><span class="tab"><span class="meta">activity_count</span>(</span></td></tr><tr class="row"><td id="L35" class="td-index">35</td><td id="LC35" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L36" class="td-index">36</td><td id="LC36" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L37" class="td-index">37</td><td id="LC37" class="td-code"><span class="tab"><span class="tab"><span class="meta">frequency</span>: <a class="support type" href="frequency.doc.html">Frequency</a></span></span></td></tr><tr class="row"><td id="L38" class="td-index">38</td><td id="LC38" class="td-code"><span class="tab">): [<a class="support type" href="activitycount.doc.html">ActivityCount</a>] </span></td></tr><tr class="row"><td id="L39" class="td-index">39</td><td id="LC39" class="td-code"></td></tr><tr class="row"><td id="L40" class="td-index">40</td><td id="LC40" class="td-code"><span class="tab"><span class="meta">contributors</span>(</span></td></tr><tr class="row"><td id="L41" class="td-index">41</td><td id="LC41" class="td-code"><span class="tab"><span class="tab"><span class="meta">start_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L42" class="td-index">42</td><td id="LC42" class="td-code"><span class="tab"><span class="tab"><span class="meta">end_date</span>: <a class="support type" href="isodatetime.doc.html">ISODateTime</a>,</span></span></td></tr><tr class="row"><td id="L43" class="td-index">43</td><td id="LC43" class="td-code"><span class="tab"><span class="tab"><span class="meta">only_humans</span>: <a class="support type" href="boolean.doc.html">Boolean</a>,</span></span></td></tr><tr class="row"><td id="L44" class="td-index">44</td><td id="LC44" class="td-code"><span class="tab"><span class="tab"><span class="meta">order_by</span>: <a class="support type" href="impermanentorderby.doc.html">ImpermanentOrderBy</a>,</span></span></td></tr><tr class="row"><td id="L45" class="td-index">45</td><td id="LC45" class="td-code"><span class="tab"><span class="tab"><span class="meta">limit</span>: <a class="support type" href="int.doc.html">Int</a></span></span></td></tr><tr class="row"><td id="L46" class="td-index">46</td><td id="LC46" class="td-code"><span class="tab">): [<a class="support type" href="identity.doc.html">Identity</a>] </span></td></tr><tr class="row"><td id="L47" class="td-index">47</td><td id="LC47" class="td-code"></td></tr><tr class="row"><td id="L48" class="td-index">48</td><td id="LC48" class="td-code"><span class="tab"><span class="comment line">#   members(start_date: ISODateTime, end_date: ISODateTime): [Identity]!</span></span></td></tr><tr class="row"><td id="L49" class="td-index">49</td><td id="LC49" class="td-code"><span class="tab"><span class="meta">is_context</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></td></tr><tr class="row"><td id="L50" class="td-index">50</td><td id="LC50" class="td-code"></td></tr><tr class="row"><td id="L51" class="td-index">51</td><td id="LC51" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
@@ -581,10 +621,144 @@
         JiraProject<em></em>
       </a>
     <li><li>
-      <a href="query.doc.html" title="
-        Query - 
+      <a href="pipedriveactivity.doc.html" title="
+        PipedriveActivity - 
       ">
-        Query<em></em>
+        PipedriveActivity<em></em>
+      </a>
+    <li><li>
+      <a href="pipedrivedeal.doc.html" title="
+        PipedriveDeal - 
+      ">
+        PipedriveDeal<em></em>
+      </a>
+    <li><li>
+      <a href="pipedrivedealflowevent.doc.html" title="
+        PipedriveDealflowEvent - 
+      ">
+        PipedriveDealflowEvent<em></em>
+      </a>
+    <li><li>
+      <a href="query.doc.html" title="
+        Query - PipedrivePerson {
+    &quot;im&quot;: &quot;[{'value': '', 'primary': True}]&quot;,
+        &quot;name&quot;: &quot;Pedro&quot;,
+        &quot;email&quot;: [{&quot;value&quot;: &quot;&quot;, &quot;primary&quot;: true}],
+        &quot;label&quot;: null,
+        &quot;notes&quot;: null,
+        &quot;phone&quot;: [{&quot;value&quot;: &quot;&quot;, &quot;primary&quot;: true}],
+        &quot;org_id&quot;: 65
+        &quot;org_name&quot;: &quot;MONDELEZ&quot;
+        &quot;add_time&quot;: &quot;2017-03-23T14:47:20.000000Z&quot;,
+        &quot;birthday&quot;: null, 
+        &quot;cc_email&quot;: &quot;lemos@pipedrivemail.com&quot;,
+        &quot;owner_id&quot;: 1649657,
+        &quot;job_title&quot;: null,
+        &quot;last_name&quot;: null,
+        &quot;company_id&quot;: 514634
+        &quot;first_char&quot;: &quot;p&quot;
+        &quot;first_name&quot;: &quot;Pedro&quot;,
+        &quot;owner_name&quot;: &quot;Renato&quot;
+        &quot;picture_id&quot;: null
+        &quot;visible_to&quot;: &quot;3&quot;
+        &quot;active_flag&quot;: true
+        &quot;files_count&quot;: 0
+        &quot;notes_count&quot;: 0
+        &quot;update_time&quot;: &quot;2017-03-31T15:23:54.000000Z&quot;
+        &quot;postal_address&quot;: null,
+        followers_count&quot;: 0, 
+        &quot;won_deals_count&quot;: 0, 
+        &quot;activities_count&quot;: 1
+        &quot;last_activity_id&quot;: 450
+        &quot;lost_deals_count&quot;: 0
+        &quot;next_activity_id&quot;: null
+        &quot;open_deals_count&quot;: 0,
+        &quot;closed_deals_count&quot;: 0
+        &quot;last_activity_date&quot;: &quot;2017-03-30&quot;
+        &quot;next_activity_date&quot;: null,
+        &quot;next_activity_time&quot;: null,
+        &quot;email_messages_count&quot;: 0
+        &quot;postal_address_route&quot;: null
+        &quot;done_activities_count&quot;: 1
+        &quot;postal_address_country&quot;: null
+        &quot;last_incoming_mail_time&quot;: null
+        &quot;last_outgoing_mail_time&quot;: null
+        &quot;postal_address_locality&quot;: null
+        &quot;related_won_deals_count&quot;: 0
+        &quot;undone_activities_count&quot;: 0
+        &quot;related_lost_deals_count&quot;: 0
+        &quot;related_open_deals_count&quot;: 0
+        &quot;postal_address_subpremise&quot;: null
+        &quot;postal_address_postal_code&quot;: null
+        &quot;postal_address_sublocality&quot;: null
+        &quot;related_closed_deals_count&quot;: 0
+        &quot;participant_open_deals_count&quot;: 0
+        &quot;postal_address_street_number&quot;: null
+        &quot;participant_closed_deals_count&quot;: 0
+        &quot;postal_address_formatted_address&quot;: null
+        &quot;postal_address_admin_area_level_1&quot;: null
+        &quot;postal_address_admin_area_level_2&quot;: null}
+}
+      ">
+        Query<em>PipedrivePerson {
+    "im": "[{'value': '', 'primary': True}]",
+        "name": "Pedro",
+        "email": [{"value": "", "primary": true}],
+        "label": null,
+        "notes": null,
+        "phone": [{"value": "", "primary": true}],
+        "org_id": 65
+        "org_name": "MONDELEZ"
+        "add_time": "2017-03-23T14:47:20.000000Z",
+        "birthday": null, 
+        "cc_email": "lemos@pipedrivemail.com",
+        "owner_id": 1649657,
+        "job_title": null,
+        "last_name": null,
+        "company_id": 514634
+        "first_char": "p"
+        "first_name": "Pedro",
+        "owner_name": "Renato"
+        "picture_id": null
+        "visible_to": "3"
+        "active_flag": true
+        "files_count": 0
+        "notes_count": 0
+        "update_time": "2017-03-31T15:23:54.000000Z"
+        "postal_address": null,
+        followers_count": 0, 
+        "won_deals_count": 0, 
+        "activities_count": 1
+        "last_activity_id": 450
+        "lost_deals_count": 0
+        "next_activity_id": null
+        "open_deals_count": 0,
+        "closed_deals_count": 0
+        "last_activity_date": "2017-03-30"
+        "next_activity_date": null,
+        "next_activity_time": null,
+        "email_messages_count": 0
+        "postal_address_route": null
+        "done_activities_count": 1
+        "postal_address_country": null
+        "last_incoming_mail_time": null
+        "last_outgoing_mail_time": null
+        "postal_address_locality": null
+        "related_won_deals_count": 0
+        "undone_activities_count": 0
+        "related_lost_deals_count": 0
+        "related_open_deals_count": 0
+        "postal_address_subpremise": null
+        "postal_address_postal_code": null
+        "postal_address_sublocality": null
+        "related_closed_deals_count": 0
+        "participant_open_deals_count": 0
+        "postal_address_street_number": null
+        "participant_closed_deals_count": 0
+        "postal_address_formatted_address": null
+        "postal_address_admin_area_level_1": null
+        "postal_address_admin_area_level_2": null}
+}</em>
       </a>
     <li><li>
       <a href="slackchannel.doc.html" title="
